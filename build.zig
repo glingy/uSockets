@@ -4,7 +4,7 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const openssl = b.dependency("openssl", .{});
+    // const openssl = b.dependency("openssl", .{});
 
     const lib = b.addStaticLibrary(.{
         .name = "uSockets",
@@ -13,8 +13,9 @@ pub fn build(b: *std.Build) !void {
         .root_source_file = .{ .path = "src/bsd.c" },
     });
 
-    lib.defineCMacro("WITH_OPENSSL", null);
-    lib.defineCMacro("LIBUS_USE_OPENSSL", null);
+    // lib.defineCMacro("WITH_OPENSSL", null);
+    // lib.defineCMacro("LIBUS_USE_OPENSSL", null);
+    lib.defineCMacro("LIBUS_NO_SSL", null);
 
     lib.addCSourceFiles(&.{
         "src/context.c",
@@ -31,11 +32,11 @@ pub fn build(b: *std.Build) !void {
         "src/io_uring/io_socket.c",
     }, &.{});
 
-    lib.addCSourceFiles(&.{
-        "src/crypto/sni_tree.cpp",
-    }, &.{
-        "-std=c++17",
-    });
+    // lib.addCSourceFiles(&.{
+    //     "src/crypto/sni_tree.cpp",
+    // }, &.{
+    //     "-std=c++17",
+    // });
 
     lib.linkLibCpp();
     lib.linkLibC();
@@ -43,8 +44,8 @@ pub fn build(b: *std.Build) !void {
     lib.addIncludePath(.{ .path = "capi" });
     lib.addIncludePath(.{ .path = "src" });
 
-    lib.linkLibrary(openssl.artifact("ssl"));
-    lib.linkLibrary(openssl.artifact("crypto"));
+    // lib.linkLibrary(openssl.artifact("ssl"));
+    // lib.linkLibrary(openssl.artifact("crypto"));
     lib.installHeader("src/libusockets.h", "libusockets.h");
 
     b.installArtifact(lib);

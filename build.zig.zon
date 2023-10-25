@@ -2,9 +2,9 @@
     .name = "uSockets",
     .version = "0.1.0",
     .dependencies = .{
-        .openssl = .{
-            .url = "https://github.com/glingy/openssl-zig/archive/refs/heads/zig-pkg.tar.gz",
-            .hash = "1220b2412e553e131a94ec3e08f4b28ff086fa853313e37ca1542e9ad18d4fe8bd0c",
-        },
+        // .openssl = .{
+        //     .url = "https://github.com/glingy/openssl-zig/archive/refs/heads/zig-pkg.tar.gz",
+        //     .hash = "1220b2412e553e131a94ec3e08f4b28ff086fa853313e37ca1542e9ad18d4fe8bd0c",
+        // },
     },
 }
