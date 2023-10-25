@@ -3,8 +3,8 @@
     .version = "0.1.0",
     .dependencies = .{
         .openssl = .{
-            .url = "https://github.com/glingy/openssl-zig/archive/refs/tags/3.2.0.tar.gz",
-            .hash = "1220ca81080e68055343edac34deb514dad1d10e61df46ae71aff6a241b9224b72db",
+            .url = "https://github.com/glingy/openssl-zig/archive/refs/heads/zig-pkg.tar.gz",
+            .hash = "1220624c35ee6b9d792be6243ba1c00354d6434763111b0558a958d88ab30ddf69d3",
         },
     },
 }
