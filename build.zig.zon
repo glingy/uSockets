@@ -4,7 +4,7 @@
     .dependencies = .{
         .openssl = .{
             .url = "https://github.com/glingy/openssl-zig/archive/refs/heads/zig-pkg.tar.gz",
-            .hash = "122036971a2cb3b34028c0712f8b105eb363c64eb3dfe4b74666aaa65f4d04e8b2cc",
+            .hash = "1220b2412e553e131a94ec3e08f4b28ff086fa853313e37ca1542e9ad18d4fe8bd0c",
         },
     },
 }
