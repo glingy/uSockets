@@ -14,6 +14,7 @@ pub fn build(b: *std.Build) !void {
     });
 
     lib.defineCMacro("WITH_OPENSSL", null);
+    lib.defineCMacro("LIBUS_USE_OPENSSL", null);
 
     lib.addCSourceFiles(&.{
         "src/context.c",
