@@ -44,6 +44,7 @@ pub fn build(b: *std.Build) !void {
     lib.addIncludePath(.{ .path = "src" });
 
     lib.linkLibrary(openssl.artifact("ssl"));
+    lib.linkLibrary(openssl.artifact("crypto"));
     lib.installHeader("src/libusockets.h", "libusockets.h");
 
     b.installArtifact(lib);
