@@ -1,0 +1,10 @@
+.{
+    .name = "uSockets",
+    .version = "0.1.0",
+    .dependencies = .{
+        .openssl = .{
+            .url = "https://github.com/glingy/openssl-zig/archive/refs/tags/3.2.0.tar.gz",
+            .hash = "1220ca81080e68055343edac34deb514dad1d10e61df46ae71aff6a241b9224b72db",
+        },
+    },
+}
