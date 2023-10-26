@@ -4,7 +4,7 @@
     .dependencies = .{
         .uv = .{
             .url = "https://github.com/glingy/libuv-zig/archive/refs/heads/v1.x.tar.gz",
-            .hash = "122029d10fadc5439228f46b275b785346061169bd54f71bcec2f25cf2b15f9c3697",
+            .hash = "12209166035c8bca814ccefbc9bd1b12a1aec012f5ad777eb5eb1bfdfcb503c29a93",
         },
         // .openssl = .{
         //     .url = "https://github.com/glingy/openssl-zig/archive/refs/heads/zig-pkg.tar.gz",

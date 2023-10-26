@@ -4,12 +4,15 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const single_threaded = b.option(bool, "single_threaded", "Build single threaded") orelse false;
+
     // const openssl = b.dependency("openssl", .{});
 
     const lib = b.addStaticLibrary(.{
         .name = "uSockets",
         .target = target,
         .optimize = optimize,
+        .single_threaded = single_threaded,
         .root_source_file = .{ .path = "src/bsd.c" },
     });
 
@@ -42,6 +45,7 @@ pub fn build(b: *std.Build) !void {
         const uv = b.dependency("uv", .{
             .target = target,
             .optimize = optimize,
+            .single_threaded = single_threaded,
         });
         lib.linkLibrary(uv.artifact("uv"));
         lib.defineCMacro("LIBUS_USE_LIBUV", null);
