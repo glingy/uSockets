@@ -38,6 +38,15 @@ pub fn build(b: *std.Build) !void {
     //     "-std=c++17",
     // });
 
+    if (target.isWindows()) {
+        const uv = b.dependency("uv", .{
+            .target = target,
+            .optimize = optimize,
+        });
+        lib.linkLibrary(uv.artifact("uv"));
+        lib.defineCMacro("LIBUS_USE_LIBUV", null);
+    }
+
     lib.linkLibCpp();
     lib.linkLibC();
 
