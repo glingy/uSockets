@@ -41,13 +41,12 @@ pub fn build(b: *std.Build) !void {
     //     "-std=c++17",
     // });
 
-    const uv = b.dependency("uv", .{
-        .target = target,
-        .optimize = optimize,
-        .single_threaded = single_threaded,
-    });
-
     if (target.isWindows()) {
+        const uv = b.dependency("uv", .{
+            .target = target,
+            .optimize = optimize,
+            .single_threaded = single_threaded,
+        });
         lib.linkLibrary(uv.artifact("uv"));
         lib.defineCMacro("LIBUS_USE_LIBUV", null);
     }
